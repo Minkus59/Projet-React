@@ -1,0 +1,16 @@
+header {
+	height: 150px;
+	background-image: url("../assets/fond_logo_blanc.jpg");
+	background-repeat: no-repeat;
+	-webkit-transition: all 500ms;
+	-moz-transition: all 500ms;
+	-o-transition: all 500ms;  
+	-khtml-transition: all 500ms; 
+	-ms-transition: all 500ms; 
+	transition: all 500ms;
+	}
+
+.logo {
+	margin-top: 20px;
+	height: 120px;
+}

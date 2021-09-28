@@ -1,0 +1,24 @@
+.cars {
+    background-color: seagreen;
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+}
+
+.carsTable {
+    width: 100%; 
+}
+
+.carsTable th, .carsTable td {
+    border: none;
+    margin: 0px;
+    padding: 8px;
+    width: 33%;
+    text-align: center;
+}
+
+.carsTable th {
+    background-color: seagreen;
+    color: white;
+}

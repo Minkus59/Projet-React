@@ -1,0 +1,19 @@
+FOOTER {
+    z-index: 3;
+    width: 100%;      
+    min-width: 1200px;
+    min-height: 280px;
+    color: #FFFFFF;  
+    background-color: #282828;
+    background-image: url("../assets/footer.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+    
+    #BoutonBas {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: -30px;
+    left: 50%; 
+    }
