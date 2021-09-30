@@ -17,7 +17,7 @@ class Profile extends Component {
               name: "nameFirst",
               email: "internetEmail",
               phone: "phoneHome",
-              _repeat: 300
+              _repeat: 10
             }
         };
         
@@ -40,7 +40,7 @@ class Profile extends Component {
             <div className="container mt-3">
                 <h1>Profil utilisateur</h1><hr />
 
-                <img src={profilImg}/>
+                <img src={profilImg} alt="profile"/>
 
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">
