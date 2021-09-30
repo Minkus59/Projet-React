@@ -6,17 +6,17 @@ class Vegeta extends Component {
 
     render() {
 
-        const {name, addOneCoup, coup, life} = this.props
+        const {name, addOneCoup, coup, life, handleClickBd, bg} = this.props
         const lifeValue = life > 0 ? (<td>{life} %</td>) : (<td><span className='btn btn-danger'>Mort</span></td>)
         const buttomlife = life > 0
          ? 
-         (<button onClick={addOneCoup} className="btn btn-success">{name} Frappe</button>)
+         (<button onClick={addOneCoup} className="btn btn-danger">{name()} Frappe</button>)
          : 
-         (<button className="btn btn-success" disabled>{name} Frappe</button>)
+         (<button className="btn btn-success" disabled>{name()} Frappe</button>)
 
         return (
-            <div className="col">
-                <img src={vegeta} alt="Vegeta"/><br />
+            <div className={`col ${bg}`}>
+                <img src={vegeta} onClick={handleClickBd} alt="Vegeta"/><br />
                 {buttomlife}
 
                 <table className="table table-striped">

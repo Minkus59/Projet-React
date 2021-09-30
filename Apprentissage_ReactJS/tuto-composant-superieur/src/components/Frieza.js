@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import goku from '../assets/goku.png'
+import frieza from '../assets/frieza.png'
 import countHits from './countHits'
 
-class Goku extends Component {
+class Frieza extends Component {
 
     render() {
 
@@ -10,13 +10,13 @@ class Goku extends Component {
         const lifeValue = life > 0 ? (<td>{life} %</td>) : (<td><span className='btn btn-danger'>Mort</span></td>)
         const buttomlife = life > 0
          ? 
-         (<button onClick={addOneCoup} className="btn btn-danger">{name()} Frappe</button>)
+         (<button onClick={addOneCoup} className="btn btn-success">{name()} Frappe</button>)
          : 
-         (<button className="btn btn-success" disabled>{name()} Frappe</button>)
+         (<button className="btn btn-danger" disabled>{name()} Frappe</button>)
 
         return (
             <div className={`col ${bg}`}>
-                <img src={goku} onClick={handleClickBd} alt="Goku"/><br />
+                <img src={frieza} onClick={handleClickBd} alt="Frieza"/><br />
                 {buttomlife}
 
                 <table className="table table-striped">
@@ -42,4 +42,4 @@ class Goku extends Component {
     }
 }
 
-export default countHits(Goku, 20);
+export default countHits(Frieza, 30);

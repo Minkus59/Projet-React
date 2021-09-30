@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Vegeta from './Vegeta';
 import Goku from './Goku';
+import Frieza from './Frieza';
 
 class App extends Component {
 
@@ -9,19 +10,26 @@ class App extends Component {
     
     this.state = {
       vegeta: 100,
-      goku: 100
+      goku: 100,
+      frieza: 100
     }
   }
 
   reduceLife = (param, param2) => {
     if(param === 'Goku') {
       this.setState({
-        vegeta: this.state.vegeta  -param2
+        frieza: this.state.frieza  -param2
+      })
+    }
+    else if(param === 'Vegeta') {
+      this.setState({
+        frieza: this.state.frieza  -param2
       })
     }
     else {
       this.setState({
-        goku: this.state.goku  -param2
+        goku: this.state.goku  -param2,
+        vegeta: this.state.vegeta  -param2
       })
     }
   }
@@ -29,12 +37,13 @@ class App extends Component {
   render() {
     return (
       <div className="container text-center">
-          <h1>Vegeta VS Goku</h1>
+          <h1>Vegeta VS Goku VS Frieza</h1>
           <hr />
 
           <div className="row">
-            <Vegeta name="Vegeta" life={this.state.vegeta} reduceHandler={this.reduceLife} />
-            <Goku name="Goku" life={this.state.goku} reduceHandler={this.reduceLife} />  
+            <Vegeta name={() => {return "Vegeta"}} life={this.state.vegeta} reduceHandler={this.reduceLife} />
+            <Goku name={() => {return "Goku"}} life={this.state.goku} reduceHandler={this.reduceLife} />  
+            <Frieza name={() => {return "Frieza"}} life={this.state.frieza} reduceHandler={this.reduceLife} />  
         </div>      
       </div>
     );

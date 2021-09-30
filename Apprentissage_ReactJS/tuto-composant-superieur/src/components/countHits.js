@@ -6,7 +6,21 @@ const countHits = (WrappedComponent, power) => {
     class CountHits extends Component {
 
         state = {
-            hits: 0
+            hits: 0,
+            bg: ''
+        }
+
+        changeBg = () => {
+            if(WrappedComponent.name === 'Frieza') {
+                this.setState({
+                    bg: 'bg-danger'
+                })
+            }
+            else {
+                this.setState({
+                    bg: 'bg-success'
+                })
+            }
         }
     
         addOneCoup = () => {
@@ -26,7 +40,7 @@ const countHits = (WrappedComponent, power) => {
         
 
         render() {
-            return <WrappedComponent addOneCoup={this.addOneCoup} coup={this.state} {...this.props} />
+            return <WrappedComponent addOneCoup={this.addOneCoup} coup={this.state} bg={this.state.bg} handleClickBd={this.changeBg} {...this.props} />
         }
     }
 
