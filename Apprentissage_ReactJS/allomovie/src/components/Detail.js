@@ -1,73 +1,42 @@
-import React, { useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
-import { MovieContext } from "./MovieContext";
+import React, {useLayoutEffect, useState} from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Cart from "./Cart";
 
-const Detail = () => {
-  let { id } = useParams();
-  const { showDetail, selectedMovie } = useContext(MovieContext);
-  
-  useEffect(() => {
-    showDetail(id);
-  }, []);
+function Detail() {
 
-  return (
-    <div className="detail-container">
-      <div className="poster">
-        {selectedMovie.Poster === "N/A" ? (
-          <img src="" alt={selectedMovie.Title} />
+    const { filmId } = useParams();
+    const API_KEY = '8de54e609afba52ab8c0e7bec153112f';
+    const [film, setFilms] = useState([]);
+    const [genres, setGenre] = useState([]);
+    const [productions, setProduction] = useState([]);
+
+      useLayoutEffect(() => {
+        axios
+        .get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`)
+        .then(response => {
+            setFilms(response.data)
+            setGenre(response.data.genres)
+            setProduction(response.data.production_companies)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+      }, [filmId])
+
+        
+    return (
+        film.length === undefined ? (
+            <Cart film={film} genres={genres} productions={productions} />
         ) : (
-          <img src={selectedMovie.Poster} alt={selectedMovie.Title} />
-        )}
-      </div>
-      <div className="info">
-        <div className="field">
-          <div className="label">
-            <p className="title label-p">{selectedMovie.Title}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            <p className="label-p">{selectedMovie.Plot}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            Released: <p className="label-p">{selectedMovie.Released}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            Runtime: <p className="label-p">{selectedMovie.Runtime}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            Genre: <p className="label-p">{selectedMovie.Genre}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            IMDB Rating: <p className="label-p">{selectedMovie.imdbRating}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            Director(s): <p className="label-p">{selectedMovie.Director}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-            Writer(s): <p className="label-p">{selectedMovie.Writer}</p>
-          </div>
-        </div>
-        <div className="field">
-          <div className="label">
-          Language(s): <p className="label-p">{selectedMovie.Language}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+            <div className="container mt-5">
+                <div className="alert alert-danger mt-5" role="alert">
+                  <h2>Aucun film n'a été trouvé !</h2>
+                  <p><a href="/" >Retour à la page d'accueil</a></p>
+                </div>
+            </div>
+        )
+    );
 };
 
 export default Detail;

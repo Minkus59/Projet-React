@@ -1,0 +1,11 @@
+.col-sm-3 h5.card-title {
+    height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} 
+
+.col-sm-3 p.card-text {
+    height: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} 

@@ -5,31 +5,31 @@ import ErrorPage from './ErrorPage';
 
 export const routes = [
   {
+    id:1,
     path: "/",
     exact: true,
-    component: <Accueil />,
-    title: "Accueil",
-    isHeaderElement: true,
+    component: Accueil,
+    title: "Accueil"
   },
   {
-    path: "/film/:id",
+    id:2,
+    path: "/film/:filmId",
     exact: false,
-    component: <Detail />,
-    title: "Detail",
-    isHeaderElement: false,
+    component: Detail,
+    title: "Detail"
   },
   {
+    id:3,
     path: "/Favoris",
     exact: false,
-    component: <Favoris />,
-    title: "Favoris",
-    isHeaderElement: true,
+    component: Favoris,
+    title: "Favoris"
   },
   {
-    path: "/ErrorPage",
+    id:4,
+    path: "",
     exact: false,
-    component: <ErrorPage />,
-    title: "ErrorPage",
-    isHeaderElement: true,
+    component: ErrorPage,
+    title: "ErrorPage"
   }
 ];
